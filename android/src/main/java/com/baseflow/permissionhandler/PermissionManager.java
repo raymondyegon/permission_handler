@@ -145,11 +145,11 @@ final class PermissionManager {
 
             if (hasContacts) {     
 
-            val builder: AlertDialog.Builder = AlertDialog.Builder(activity)
+            AlertDialog.Builder builder  = AlertDialog.Builder(activity);
 
-            builder.setTitle("Allow Brij to access this device's contacts")
-            builder.setMessage("In order to be able to automatically add people, Please enable 'Allow' Contacts permission")
-            builder.setPositiveButton("Ok", null)
+            builder.setTitle("Allow Brij to access this device's contacts");
+            builder.setMessage("In order to be able to automatically add people, Please enable 'Allow' Contacts permission");
+            builder.setPositiveButton("Ok", null);
             builder.setOnDismissListener {
                 
                 ActivityCompat.requestPermissions( 
@@ -157,7 +157,7 @@ final class PermissionManager {
                         requestPermissions,
                         PermissionConstants.PERMISSION_CODE);
                 }
-            builder.show()
+            builder.create();
 
             } else {
 
