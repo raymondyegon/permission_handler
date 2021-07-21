@@ -163,6 +163,8 @@ final class PermissionManager {
 
             
             builder.create();
+            
+            builder.show();
 
             } else {
 
