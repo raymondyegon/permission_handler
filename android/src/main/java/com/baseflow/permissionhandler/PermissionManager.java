@@ -140,10 +140,35 @@ final class PermissionManager {
 
             ongoing = true;
 
-            ActivityCompat.requestPermissions( 
+            boolean hasContacts = permissions.contains(PermissionConstants.PERMISSION_GROUP_CONTACTS);
+            
+
+            if (hasContacts) {     
+
+            val builder: AlertDialog.Builder = AlertDialog.Builder(activity)
+
+            builder.setTitle("Allow Brij to access this device's contacts")
+            builder.setMessage("In order to be able to automatically add people, Please enable 'Allow' Contacts permission")
+            builder.setPositiveButton("Ok", null)
+            builder.setOnDismissListener {
+                
+                ActivityCompat.requestPermissions( 
+                        activity,
+                        requestPermissions,
+                        PermissionConstants.PERMISSION_CODE);
+                }
+            builder.show()
+
+            } else {
+
+                ActivityCompat.requestPermissions( 
                     activity,
                     requestPermissions,
                     PermissionConstants.PERMISSION_CODE);
+
+            }
+
+
         } else {
             ongoing = false;
             if (requestResults.size() > 0) {
