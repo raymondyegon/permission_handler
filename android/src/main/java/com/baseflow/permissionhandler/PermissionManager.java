@@ -149,14 +149,13 @@ final class PermissionManager {
 
             builder.setTitle("Allow Brij to access this device's contacts");
             builder.setMessage("In order to be able to automatically add people, Please enable 'Allow' Contacts permission");
-            builder.setPositiveButton("Ok", null);
-            builder.setOnDismissListener {
-                
+            builder.setPositiveButton("Ok", (){
                 ActivityCompat.requestPermissions( 
                         activity,
                         requestPermissions,
                         PermissionConstants.PERMISSION_CODE);
-                }
+            });
+            
             builder.create();
 
             } else {
