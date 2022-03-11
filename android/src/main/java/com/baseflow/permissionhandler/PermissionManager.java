@@ -144,6 +144,8 @@ final class PermissionManager {
 
             boolean hasContacts = permissions.contains(PermissionConstants.PERMISSION_GROUP_CONTACTS);
             
+            boolean hasLocation = permissions.contains(PermissionConstants.PERMISSION_GROUP_LOCATION_WHEN_IN_USE);
+            
 
             if (hasContacts) {     
 
@@ -166,7 +168,32 @@ final class PermissionManager {
             
             builder.show();
 
-            } else {
+            } 
+            if (hasLocation) {     
+
+            AlertDialog.Builder builder  = new AlertDialog.Builder(activity);
+
+            builder.setTitle("Allow This App to access this device's contacts");
+            builder.setMessage("In order to be able to automatically select your location, Please enable 'Allow When in Use' Location permission");
+            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+           public void onClick(DialogInterface dialog, int id) {
+               // User clicked OK button
+               ActivityCompat.requestPermissions( 
+                    activity,
+                    requestPermissions,
+                    PermissionConstants.PERMISSION_CODE);
+           }
+            });
+
+            
+            builder.create();
+            
+            builder.show();
+
+            }
+            
+            
+            else {
 
                 ActivityCompat.requestPermissions( 
                     activity,
