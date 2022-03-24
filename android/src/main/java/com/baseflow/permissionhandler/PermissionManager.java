@@ -173,8 +173,8 @@ final class PermissionManager {
 
             AlertDialog.Builder builder  = new AlertDialog.Builder(activity);
 
-            builder.setTitle("Allow This App to access this device's contacts");
-            builder.setMessage("In order to be able to automatically select your location, Please enable 'Allow When in Use' Location permission");
+            builder.setTitle("Allow This App to access this device's location");
+            builder.setMessage("In order to be able to automatically select your location, Please enable 'Allow Only While in Use' Location permission");
             builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
            public void onClick(DialogInterface dialog, int id) {
                // User clicked OK button
